@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Story Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: url('images/romantic-bg.jpg') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 192, 203, 0.9);
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+        .quiz-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #ff1493;
+        }
+        #quizResult {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="quiz-title">How Well Do You Know Our Love Story?</h1>
+        <form id="quizForm">
+            <div class="question" id="question1">
+                <label>When did we meet officially?</label><br>
+                <input type="radio" name="question1" value="2022"> 2022<br>
+                <input type="radio" name="question1" value="2024"> 2024<br>
+                <input type="radio" name="question1" value="2023"> 2023<br>
+            </div>
+            <div class="question" id="question2" style="display: none;">
+                <label>Where was our first date?</label><br>
+                <input type="radio" name="question2" value="restaurant"> A restaurant<br>
+                <input type="radio" name="question2" value="park"> A park<br>
+                <input type="radio" name="question2" value="Ku SBA 5"> Ku SBA 5<br>
+            </div>
+            <div class="question" id="question3" style="display: none;">
+                <label>What is my favorite color?</label><br>
+                <input type="radio" name="question3" value="red"> Red<br>
+                <input type="radio" name="question3" value="purple"> Purple<br>
+                <input type="radio" name="question3" value="green"> Green<br>
+            </div>
+            <div class="question" id="question4" style="display: none;">
+                <label>What is my favorite nickname?</label><br>
+                <input type="radio" name="question4" value="Hillz"> Hillz<br>
+                <input type="radio" name="question4" value="Ba Able"> Ba Able<br>
+                <input type="radio" name="question4" value="Lune"> Lune<br>
+            </div>
+            <div class="question" id="question5" style="display: none;">
+                <label>What is my favorite position?</label><br>
+                <input type="radio" name="question5" value="The one you know"> The one you know<br>
+                <input type="radio" name="question5" value="The one i know"> The one I know<br>
+                <input type="radio" name="question5" value="The one you don't know"> The one you don't know<br>
+            </div>
+            <button type="button" onclick="nextQuestion()">Next Question</button>
+        </form>
+        <div id="quizResult"></div>
+        <button id="homeBtn" style="display: none;" onclick="goHome()">Go Home</button>
+    </div>
+    <script>
+        const correctAnswers = {
+            question1: '2023',
+            question2: 'Ku SBA 5',
+            question3: 'purple',
+            question4: 'Lune',
+            question5: 'The one you know'
+        };
+        let score = 0;
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        function nextQuestion() {
+            const selectedOption = document.querySelector(`input[name="question${currentQuestion}"]:checked`);
+            if (selectedOption && selectedOption.value === correctAnswers[`question${currentQuestion}`]) {
+                score++;
+            }
+            if (currentQuestion < totalQuestions) {
+                document.getElementById(`question${currentQuestion}`).style.display = 'none';
+                currentQuestion++;
+                document.getElementById(`question${currentQuestion}`).style.display = 'block';
+            } else {
+                showResult();
+            }
+        }
+        function showResult() {
+            const resultDiv = document.getElementById('quizResult');
+            const homeBtn = document.getElementById('homeBtn');
+            if (score === totalQuestions) {
+                resultDiv.innerHTML = `<a href="love-letter.html" style="color: white; font-size: 18px;">Well done, Click me! 💕</a>`;
+            } else {
+                resultDiv.innerHTML = `Your score: ${score} out of ${totalQuestions} 😢`;
+            }
+            homeBtn.style.display = 'block';
+        }
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

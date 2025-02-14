@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lune ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Love Letter Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .letter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f9e0e0;
+            color: #8b3d3d;
+        }
+
+        .love-message {
+            font-size: 1.8em;
+            max-width: 90%;
+            text-align: center;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #fff5f5;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-message h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Music Controls */
+        audio {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .love-message {
+                font-size: 1.5em;
+                padding: 15px;
+            }
+
+            .love-message h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .love-message {
+                font-size: 1.2em;
+                padding: 10px;
+            }
+
+            .love-message h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="audio/mirrors.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Love Letter -->
+    <div class="letter-container">
+        <h1>Lune! ❤️</h1>
+        <div class="love-message">
+            <h2>My Dearest Moon,</h2>
+            <p>On this special Valentine's Day, I want you to know that you are the greatest gift in my life. You fill my heart with joy, my soul with peace, and my world with love.</p>
+            <p>Every moment with you feels like a dream I never want to wake up from, and I can't wait to make more beautiful memories with you. Your love is my greatest treasure, and I will cherish it forever.</p>
+            <p>Happy Valentine's Day, my love. I am so blessed to have you by my side.</p>
+            <p>Yours always, 💖</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-play music on page load
+        window.onload = function() {
+            var music = document.getElementById('bg-music');
+            music.play();
+        };
+    </script>
+</body>
+</html>

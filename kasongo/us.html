@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            background-color: #ff3366;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Container for the slideshow and video */
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Memory Section */
+        #memories {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Slideshow Styling */
+        .slideshow-container {
+            position: relative;
+            width: 80%;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Controls */
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .controls button {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+
+        .controls button:hover {
+            background-color: rgba(255, 0, 0, 1);
+        }
+
+        /* Music Controls */
+        #audio {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Navigation links */
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #cc0033;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffcccb;
+        }
+
+        /* Scroll Buttons */
+        .scroll-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .scroll-buttons button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .scroll-buttons button:hover {
+            background-color: #ff3366;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 2em;
+            }
+
+            .slideshow-container {
+                width: 90%;
+            }
+
+            .mySlides {
+                max-height: 300px;
+            }
+
+            .controls button {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container h1 {
+                font-size: 1.8em;
+            }
+
+            .slideshow-container {
+                width: 100%;
+            }
+
+            .mySlides {
+                max-height: 200px;
+            }
+
+            .controls button {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            #audio audio {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="game.html">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Memories Slideshow Section -->
+    <section id="memories">
+        <h2>Our Beautiful Memories</h2>
+        <p>Enjoy the love-filled journey I've prepared just for you! 💕</p>
+        <p>A gallery of our most precious moments together.</p>
+
+        <div class="slideshow-container">
+            <div class="mySlides fade"><img src="images/eight.jpg" alt="Memory 1"></div>
+            <div class="mySlides fade"><img src="images/hillz_1.jpg" alt="Memory 2"></div>
+            <div class="mySlides fade"><img src="images/one.jpg" alt="Memory 3"></div>
+            <div class="mySlides fade"><img src="images/hillz_2.jpg" alt="Memory 4"></div>
+            <div class="mySlides fade"><img src="images/ten.jpg" alt="Memory 5"></div>
+            <div class="mySlides fade"><img src="images/twelve.jpg" alt="Memory 6"></div>
+            <div class="mySlides fade"><img src="images/hillz_4.jpg" alt="Memory 7"></div>
+            <div class="mySlides fade"><img src="images/three.jpg" alt="Memory 8"></div>
+            <div class="mySlides fade"><img src="images/four_1.jpg" alt="Memory 14"></div>
+            <div class="mySlides fade"><img src="images/five.jpg" alt="Memory 9"></div>
+            <div class="mySlides fade"><img src="images/five_1.jpg" alt="Memory 10"></div>
+            <div class="mySlides fade"><img src="images/hillz_3.jpg" alt="Memory 11"></div>
+            <div class="mySlides fade"><img src="images/seven.jpg" alt="Memory 12"></div>
+            <div class="mySlides fade"><img src="images/six.jpg" alt="Memory 13"></div>
+            <div class="mySlides fade"><img src="images/nine.jpg" alt="Memory 14"></div>
+            <div class="mySlides fade"><img src="images/four.jpg" alt="Memory 14"></div>
+            <div class="mySlides fade"><img src="images/two.jpg" alt="Memory 14"></div>
+            
+            <!-- Navigation Controls -->
+            <div class="controls">
+                <button onclick="plusSlides(-1)">&#10094;</button>
+                <button onclick="plusSlides(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Music Controls -->
+    <div id="audio">
+        <audio autoplay loop>
+            <source src="audio/stand_by_me.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Scroll Buttons -->
+    <div class="scroll-buttons">
+        <button onclick="scrollPage('up')">⬆ Scroll Up</button>
+        <button onclick="scrollPage('down')">⬇ Scroll Down</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        function plusSlides(n) {
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            showSlides();
+        }
+        function scrollPage(direction) {
+            if (direction === 'up') {
+                window.scrollBy(0, -300);
+            } else {
+                window.scrollBy(0, 300);
+            }
+        }
+        showSlides();
+        document.querySelector('audio').play();
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Page Styling */
+        body {
+            background-color: #ff1a1a;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Allows vertical scrolling */
+        }
+
+        /* Falling Balloons */
+        #balloon-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1; /* Moves behind content */
+            pointer-events: none;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: red;
+            animation: fall 10s infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Glittering Effect */
+        #glitter-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1; /* Moves behind content */
+            pointer-events: none;
+        }
+
+        .glitter {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: gold;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: glitterFall 6s infinite;
+        }
+
+        @keyframes glitterFall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Container Styling */
+        .container {
+            padding: 20px;
+            background: rgba(255, 0, 0, 0.6);
+            border-radius: 15px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Photo Gallery */
+        .photo-gallery img {
+            width: 30%;
+            border-radius: 15px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Buttons */
+        button {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: pink;
+            color: white;
+        }
+
+        /* Quiz Styling */
+        .quiz {
+            margin-top: 20px;
+        }
+
+        #quiz-answer {
+            font-size: 2em;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Balloons and Glitter -->
+    <div id="balloon-container"></div>
+    <div id="glitter-container"></div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop autoplay>
+        <source src="audio/mirrors.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Happy Valentine's Day, My Love! 💖</h1>
+        <p>You make my world brighter every day! ❤️</p>
+        <button id="memory-lane-btn" onclick="goToMemoryLane()">Memory Lane</button>
+    </div>
+
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Do you love me? 😘</h2>
+        <button onclick="showAnswer(true)">Yes! 💕</button>
+        <button onclick="showAnswer(false)">No 😆</button>
+        <p id="quiz-answer"></p>
+    </div>
+
+    <script>
+        const colors = ['red', 'blue', 'violet', 'purple', 'green', 'white', 'yellow'];
+
+        // Function to Create Balloons
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('balloon-container').appendChild(balloon);
+        }
+
+        // Function to Create Glitter
+        function createGlitter() {
+            const glitter = document.createElement('div');
+            glitter.classList.add('glitter');
+            glitter.style.left = `${Math.random() * 100}%`;
+            document.getElementById('glitter-container').appendChild(glitter);
+        }
+
+        // Function to Start Celebration
+        function startCelebration() {
+            for (let i = 0; i < 10; i++) {
+                createBalloon();
+                createGlitter();
+            }
+        }
+
+        // Function to Handle Quiz Answer
+        function showAnswer(isYes) {
+            const answerText = document.getElementById('quiz-answer');
+            if (isYes) {
+                answerText.innerHTML = "Yaaay! I love you too! ❤️🎈";
+                startCelebration(); // Start balloons and glitter falling
+            } else {
+                answerText.innerHTML = "😭💔 Oh no! That hurts!";
+            }
+            answerText.style.display = "block";
+        }
+
+        // Memory Lane Button Redirect
+        function goToMemoryLane() {
+            window.location.href = "memory-lane.html";
+        }
+    </script>
+</body>
+</html>

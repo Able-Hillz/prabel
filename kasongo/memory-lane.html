@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Lane 💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            text-align: center;
+            color: rgb(236, 171, 171);
+            font-family: Arial, sans-serif;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Running Romantic Words */
+        .running-words {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px black;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        /* Button Styles */
+        .button-container {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff4d88;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #e04376;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="video/fun-moments.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="running-words" id="wordDisplay"></div>
+    
+    <div class="button-container">
+        <button onclick="us()">Us 💑</button>
+        <button onclick="playMusic()">Play Music 🎶</button>
+    </div>
+
+    <script>
+        const words = [
+            "You are my forever, my heart, my love ❤️",
+            "Every moment with you is a dream come true 💕",
+            "I put my hand in yours, now and forever 💖",
+            "Like Pompi said, you got the perfect score ❤️",
+            "Infinite na kamo 💕",
+            "Together, we are unstoppable 💖"
+        ];
+
+        const images = [
+            'images/memory1.jpg',
+            'images/memory2.jpg',
+            'images/memory3.jpg',
+            'images/memory4.jpg',
+            'images/memory5.jpg',
+            'images/memory6.jpg'
+        ];
+
+        let index = 0;
+        function changeWord() {
+            document.body.style.backgroundImage = `url(${images[index]})`;
+            const wordDisplay = document.getElementById("wordDisplay");
+            wordDisplay.style.opacity = 0;
+            setTimeout(() => {
+                wordDisplay.textContent = words[index];
+                wordDisplay.style.opacity = 1;
+            }, 500);
+            index = (index + 1) % words.length;
+        }
+
+        setInterval(changeWord, 5000);
+        changeWord();
+
+        var music = new Audio('audio/like_i_do.mp3');
+        function playMusic() {
+            music.play();
+        }
+
+        function us() {
+            window.location.href = "us.html";
+        }
+    </script>
+</body>
+</html>
